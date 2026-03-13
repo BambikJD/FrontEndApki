@@ -1,0 +1,67 @@
+/* Główne okno aplikacji */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Zajmuje minimum całą wysokość ekranu */
+  background-color: #e2e8f0; /* Lekko szare tło dookoła, żeby biała tabela się odcinała */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+}
+
+/* --- PASEK NAWIGACJI --- */
+.top-navbar {
+  background-color: #1e293b;
+  color: white;
+  padding: 15px 30px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto; /* Wyśrodkowanie paska */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-link {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.05rem;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+/* --- OBSZAR GŁÓWNY (Tam gdzie wpada <router-outlet>) --- */
+.main-content {
+  flex-grow: 1; /* Wypycha stopkę na sam dół, jeśli jest mało treści */
+  width: 100%;
+  max-width: 1200px; /* Nie pozwala tabeli rozciągnąć się w nieskończoność */
+  margin: 40px auto; /* 40px odstępu od paska góry i od dołu, 'auto' po bokach centruje */
+  padding: 0 20px;
+}
+
+/* --- STOPKA --- */
+.bottom-footer {
+  background-color: #0f172a;
+  color: #64748b;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
