@@ -177,17 +177,14 @@
 }
 
 .action-btn.view {
-  background-image: url("C:/Users/BARTEK/IdeaProjects/FrontEndApki/FrontEndApki/src/resoruces/icons/IconView.png");
   background-size: cover;
 }
 
 .action-btn.edit {
-  background-image: url("C:/Users/BARTEK/IdeaProjects/FrontEndApki/FrontEndApki/src/resoruces/icons/IconEdit.png");
   background-size: cover;
 }
 
 .action-btn.delete {
-  background-image: url("C:/Users/BARTEK/IdeaProjects/FrontEndApki/FrontEndApki/src/resoruces/icons/IconDelete.png");
   background-size: cover;
 }
 

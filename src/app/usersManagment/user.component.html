@@ -121,12 +121,27 @@
           <label>Email</label>
           <input type="email" [value]="selectedUser?.email" #emailInput class="form-control">
         </div>
-      </div>
+
+        <div class="form-group">
+          <label>Rola użytkownika</label>
+          <select #rolaInput class="form-control">
+            <option value= "USER" [selected]="selectedUser?.userRole?.toString() == 'USER'">User</option>
+            <option value= "ADMIN" [selected]="selectedUser?.userRole?.toString() == 'ADMIN'">Admin</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Aktywność konta</label>
+          <select #aktywnoscInput class="form-control">
+            <option value="true" [selected]="selectedUser?.enabled === true">Aktywny</option>
+            <option value="false" [selected]="selectedUser?.enabled === false">Nieaktywny</option>
+          </select>
+        </div>
+        </div>
 
       <div class="modal-footer">
         <button class="btn-cancel" (click)="closeModal()">Anuluj</button>
         <button class="btn-success" 
-                (click)="onEditUserRaw(imieInput.value, nazwiskoInput.value, emailInput.value)">
+                (click)="onEditUserRaw(imieInput.value, nazwiskoInput.value, emailInput.value, aktywnoscInput.value === 'true', rolaInput.value)">
           Zapisz
         </button>
       </div>

@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { User, UserRole } from './user';
-import { UserService } from './user-service';
+import { User, UserRole } from './user-service/user';
+import { UserService } from './user-service/user-service';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
@@ -89,7 +89,7 @@ export class UserComponent implements OnInit {
       locked: false
     }
 
-    this.userService.addUser(newUser).subscribe({
+    this.userService.registerUser(newUser).subscribe({
       next: (response: User) => {
         console.log("Dodano użytkownika!", response);
         this.getUsers();
@@ -101,7 +101,7 @@ export class UserComponent implements OnInit {
     });
   }
 
-  public onEditUserRaw(name: string, surname: string, email: string): void {
+  public onEditUserRaw(name: string, surname: string, email: string, enabled: boolean, userRole: string): void {
     
     if(this.selectedUser != null){
       const newUser: User = {
@@ -111,9 +111,13 @@ export class UserComponent implements OnInit {
         login: this.selectedUser.login,
         password: this.selectedUser.password,
         email: email,
-        userRole: this.selectedUser.userRole,
-        enabled: this.selectedUser.enabled, 
+        userRole: UserRole.USER,
+        enabled: enabled, 
         locked: this.selectedUser.locked
+      }
+
+      if(userRole === 'ADMIN'){
+        newUser.userRole = UserRole.ADMIN;
       }
 
       this.userService.updateUser(newUser).subscribe({
